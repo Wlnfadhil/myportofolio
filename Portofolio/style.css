@@ -1,0 +1,348 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  font-family: "Trocchi", serif;
+  overflow-x: hidden;
+  background-color: #594b5e;
+  font-size: 18px;
+  margin: 5px;
+}
+/* container */
+.container{
+  display: grid;
+  gap: 10px ;
+}
+
+/* header */
+.container {
+  display: grid;
+  grid-template-areas: 
+      'hero hero feature-1'
+      'hero hero feature-2';
+}
+.hero {
+  grid-area: hero;
+  min-height: 300px; 
+  background-image: url(gambar/hero.jpeg);
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+}
+
+.hero > *{
+  display: none;
+}
+.features {
+  background-color: #09040a;
+  color: rgb(242, 248, 248);
+  display: grid;
+  text-align: center;
+  place-content: center;
+  cursor: pointer;
+}
+
+.feature-1{
+  grid-area:feature-1;
+  background-image: url(gambar/fisika.jpeg);
+  background-size: cover;
+}
+
+.feature-2{
+  grid-area:feature-2;
+  background-image: url(gambar/kampus.jpeg);
+  background-size: cover;
+}
+.features .price{
+  font-size: 3em;
+  font-weight: 200;
+}
+
+
+/* navigasi */
+nav {
+  background-color: rgb(2, 10, 10);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+  height: 60px;
+  width: 95%;
+  margin-top: 5px;
+  order: 1;position: top;
+  border-radius: 3px;
+}
+.menu{
+  display: flex;
+}
+
+.menu li a{
+  padding: 10px 25px;
+}
+
+nav .brand{
+  font-size: xx-large;
+  font-weight: bold;
+  
+}
+
+nav .brand a{
+  color: antiquewhite;
+  text-decoration: none;
+}
+
+nav .menu li a {
+  color: aliceblue;
+  text-decoration: none;
+  font-weight: 500;
+  width: 20%;
+}
+nav .menu li {
+  list-style: none;
+  padding: 10px;
+}
+
+nav .menu li a:hover{
+  background-color: black;
+}
+
+nav .menu .dropdown {
+  display: none;
+}
+
+nav ul li:hover .dropdown{
+  display: block;
+  background-color: black;
+  position: absolute;
+  list-style: none;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* services */
+.keahlian{
+  display: flex;
+  
+}
+
+.services{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+
+}
+
+
+.service{
+  background-color: aliceblue;
+  padding: 15px;
+  text-align: center;
+  border:1px solid #000;
+  border-radius: 3px;
+  box-shadow:1px 1px 2px rgb(250, 244, 244) ;
+}
+
+.services .icon{
+  font-size: 3em;
+}
+.service h3{
+  font-size: 1.5em;
+}
+
+.service p{
+  font-weight: 200;
+  letter-spacing: 1px;
+  font-size: 0.8em;
+}
+/* reponsip navbar*/
+
+@media screen and (max-width:1024px){
+  .menu{
+    order: inherit;
+    grid-template-columns: 1fr;
+  }
+
+  .menu .brand{
+    display: none;
+  }
+  .hero > * {
+    display: block;
+    background-color: #000;
+    color: rgb(250, 244, 244);
+    padding: 5px;
+    margin-bottom: 5px;
+    
+  }
+  
+  .hero{
+    display: flex;
+    align-items: start;
+    flex-direction:center;
+    gap: 20px ;
+    
+  }
+  main {
+    flex-flow: column nowrap;
+  }
+  
+}
+@media screen and (max-width:768px){
+  .menu {
+    display: none;
+    flex-direction: column;
+    padding: 10px 0;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+  }
+
+  .menu li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .navbar-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    color: #fff;
+    font-size: 20px;
+  }
+
+  .dropdown {
+    display: none;
+    position: static;
+    padding: 0;
+    background-color: transparent;
+    width: auto;
+  }
+
+  .menu li:hover .dropdown {
+    display: block;
+  }
+  .main {
+    flex-direction: column;
+  }
+  
+  .architecto {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  main {
+    flex-direction: column;
+  }
+  
+  #content {
+    flex: 100%; /* Konten mengisi lebar penuh */
+  }
+
+  aside {
+    order: -1; /* Aside dipindahkan ke atas */
+    margin-top: 20px; /* Jarak antara aside dengan konten */
+  }
+}
+@media screen and (max-width:600px){
+  .container{
+    grid-template-areas:
+    'hero' 
+    'feature-1'
+    'feature-2';
+  }
+  nav li a {width: 80%;}
+  nav{
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+
+/* main */
+main {
+  display: flex;
+  
+}
+
+#content{
+  text-align: center;
+}
+#content {
+  flex: 3; /* Mengatur ukuran konten */
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+article {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 100%; /* Konten mengisi lebar penuh */
+}
+
+article h2 {
+  margin-bottom: 10px;
+}
+
+article p {
+  margin-bottom: 15px;
+}
+
+aside {
+  flex: 1; /* Mengatur ukuran aside */
+  padding: 20px;
+}
+
+aside article {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+aside article header {
+  text-align: center;
+}
+
+aside article table {
+  width: 100%;
+  margin-top: 10px;
+}
+
+aside article th {
+  text-align: left;
+  padding-right: 10px;
+}
+/* footer */
+footer {
+  background-color: chocolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer a {
+  color: var(--bg);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: white;
+}
+
+footer li {
+  list-style: none;
+  display: inline;
+  margin: 0.5rem;
+}
